@@ -1,3 +1,52 @@
 // Place all the styles related to the calendar controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table,
+thead {
+  border: solid 1px black;
+}
+
+td,
+th {
+  padding: 0px 10px 0px 10px;
+  height: 18px;
+}
+
+td {
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+
+.halfhour td {
+  border-top: dashed 1px;
+}
+
+.hour td {
+  border-top: solid 1px;
+}
+
+td.time {
+  border: none;
+  border-right: 1px solid;
+  color: #3f3f3f;
+  vertical-align: bottom;
+  text-align: right;
+}
+
+.day {
+  font-weight: normal;
+  width: 120px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
