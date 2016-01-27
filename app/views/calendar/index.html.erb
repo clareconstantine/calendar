@@ -1,7 +1,7 @@
 <h1>Calendar</h1>
 <% @events.each do |e| %>
   <div>
-    <%= "#{e.name}: #{e.day}, #{e.start_time} - #{e.end_time} = #{e.hours_long}" %>
+    <%= "#{e.name}: #{e.day}, #{e.start_time} - #{e.end_time} = #{e.duration} half hr" %>
   </div>
 <% end %>
 
