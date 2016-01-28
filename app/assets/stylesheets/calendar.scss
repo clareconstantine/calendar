@@ -28,7 +28,7 @@ td {
 }
 
 .halfhour td {
-  border-top: dashed 1px;
+  border-top: dashed 1px gray;
 }
 
 .hour td {
@@ -51,7 +51,7 @@ td.time {
 
 }
 
-.event {
+td.event {
   background-color: #addff0;
   border: 1px solid;
   text-align: center;
