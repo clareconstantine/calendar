@@ -71,12 +71,12 @@ module CalendarHelper
   end
 
   def event_start absolute_value, day
-    events = @events.select {|e| e.day == day && e.absolute_start == absolute_value}
+    events = @events.select {|e| e.day == day && e.start_time == absolute_value}
     events.first
   end
 
   def event_continuation absolute_value, day
-    events = @events.select {|e| e.day == day && e.absolute_start < absolute_value && e.absolute_end > absolute_value}
+    events = @events.select {|e| e.day == day && e.start_time < absolute_value && e.end_time > absolute_value}
     events.first
   end
 
