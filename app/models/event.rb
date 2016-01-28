@@ -31,6 +31,10 @@ class Event < ActiveRecord::Base
                          '1:00pm' => 27
   }
 
+  def day= d     
+    write_attribute :day, format_day(d)
+  end
+
   def absolute_start
     TIME_TO_ABSOLUTE[start_time]
   end
@@ -42,6 +46,26 @@ class Event < ActiveRecord::Base
   # in units of 30 min because each calendar cell is 30 min
   def duration
     absolute_end - absolute_start
+  end
+
+  # Save it so it is easy to compare with day labels on calendar
+  def format_day d
+    case d
+      when 'Sunday'
+        'Sun'
+      when 'Monday'
+        'Mon'
+      when 'Tuesday'
+        'Tues'
+      when 'Wednesday'
+        'Wed'
+      when 'Thursday'
+        'Thurs'
+      when 'Friday'
+        'Fri'
+      when 'Saturday'
+        'Sat'
+      end
   end
 
 end
