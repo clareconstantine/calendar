@@ -28,11 +28,11 @@ td {
 }
 
 .halfhour td {
-  border-top: dashed 1px gray;
+  border-top: dashed 1px #b8b8b8;
 }
 
 .hour td {
-  border-top: solid 1px;
+  border-top: solid 1px #919191;
 }
 
 td.time {
@@ -53,6 +53,6 @@ td.time {
 
 td.event {
   background-color: #addff0;
-  border: 1px solid;
+  border: 1px solid black;
   text-align: center;
 }
