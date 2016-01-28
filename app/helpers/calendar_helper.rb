@@ -62,12 +62,14 @@ module CalendarHelper
       # two events start simultaneously
       if events_starting.size == 2
         events_starting.each do |e|
-          cells << content_tag(:td, e.name, { :class => 'event', :rowspan => e.duration.to_s, :colspan => '1' })
+          cells << event_cell(e, 1)
         end
+
       # one event starts, one is continuing
       elsif events_starting.size == 1 && events_continuing.size == 1
         e = events_starting.first
-        cells << content_tag(:td, e.name, { :class => 'event', :rowspan => e.duration.to_s, :colspan => '1' })
+        cells << event_cell(e, 1)
+
       # one event starts, none continuing
       elsif events_starting.size == 1
         e = events_starting.first
@@ -75,12 +77,13 @@ module CalendarHelper
 
         # if no overlapping events
         if events_overlapping.size == 0
-          cells << content_tag(:td, e.name, { :class => 'event', :rowspan => e.duration.to_s, :colspan => '2' })
+          cells << event_cell(e, 2)
         # overlapping event starting later
         else
           cells << content_tag(:td, "", :colspan => '1')
-          cells << content_tag(:td, e.name, { :class => 'event', :rowspan => e.duration.to_s, :colspan => '1' })
+          cells << event_cell(e, 1)
         end
+
       # one continuing event
       elsif events_continuing.size == 1
         e = events_continuing.first
@@ -91,6 +94,7 @@ module CalendarHelper
         if events_overlapping.size == 1
           cells << content_tag(:td, "", :colspan => '1')
         end
+
       # no events starting or continuing
       elsif events_continuing.size == 0
         cells << content_tag(:td, "", :colspan => '2')
@@ -98,6 +102,11 @@ module CalendarHelper
     end
 
     cells.html_safe
+  end
+
+  # colspan is 1 if the event overlaps another event, 2 if it does not
+  def event_cell event, colspan
+    content_tag(:td, event.name, { :class => 'event', :rowspan => event.duration.to_s, :colspan => colspan.to_s })
   end
 
   def event_start absolute_value, day
