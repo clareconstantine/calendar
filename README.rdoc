@@ -1,28 +1,21 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a simple calendar app, created as a coding exercise.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Spec:
+
+* Input events via the array of events in calendar#index
+
+* Each event may overlap at most one other event
+
+* Accommodates start and end times between 11:30pm and 1:30pm
+
+* Multi-day events not supported - must be input as separate events on each day
+
+
+Other info:
+
+* Ruby 2.2.3
+* No added gems
+* No automated testing
